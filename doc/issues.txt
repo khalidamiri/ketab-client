@@ -1,0 +1,43 @@
+
+Issues faced during developing Kankor
+
+----------
+( ! ) Warning: include() [<a href='function.include'>function.include</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/New_York' for '-5.0/no DST' instead in C:\Program Files (x86)\Zend\Apache2\htdocs\kankor\controllers\question_controller.class.php on line 3
+
+	Solution: Uncommented date.timezone and set the value of America/New_York to it.
+
+
+------------
+( ! ) Warning: include(../models/Question.class.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in C:\Program Files (x86)\Zend\Apache2\htdocs\kankor\controllers\Question_Controller.class.php on line 3
+
+	Solution: Use dirname() and __DIR__ instead of relative paths in include and require.
+
+-------------
+json_encode() not working for question. Returns empty json.
+
+	Cause: json_encode() can not encode objects with private properties.
+
+	Solution:
+	Added a toJson() method to Question class as following:
+
+	public function toJson()
+	{
+		return json_encode(get_object_vars($this));
+	}
+
+	And added a toJson() method to Question_Controller class which encodes the $questions associative array as Json:
+
+	public function toJson($assocArray)
+	{
+		$jsonText = '{' . PHP_EOL;
+		$c = 0;
+		foreach ($assocArray as $key => $value)
+		{
+			$jsonText .= $key . ':';
+			$jsonText .= $value->toJson() . PHP_EOL;
+		}
+		$jsonText .= '}';
+		return $jsonText;
+	}
+
+----------
