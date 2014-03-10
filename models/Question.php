@@ -4,7 +4,7 @@
  *		
  */
  
- class Question
+ class Question extends Model
  {
 	private $qId;
 	private $qText;

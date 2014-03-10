@@ -1,8 +1,8 @@
 <?php
 
-include dirname(__DIR__) . '../models/question.class.php';
+include dirname(__DIR__) . '../models/Question.php';
 
-class Question_Controller
+class QuestionController extends Controller
 {
 
 	private $questions = array();

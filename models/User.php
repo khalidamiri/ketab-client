@@ -4,7 +4,7 @@
  *		Abstract User class contains shared functions and properties of all user types.
  */
  
- class user{
+ class user extends Model{
 	private $userid, $fname, $lname, $email, $usertype;
 	
 	function __construct($userid, $fname, $lname, $email, $usertype){

@@ -23,7 +23,7 @@
 			this.model.fetch();
 		},
 		render: function() {
-			this.$el.html(
+			this.$el.append(
 				'<div class="question">' +
 				'<span class="qNum">' + this.model.get('qId') + '</span>' + 
 				'<span class="qTitle">' + this.model.get('qText') + '</span>' +

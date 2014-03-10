@@ -1,6 +1,6 @@
 <?php
 
-require 'question-controller.class.php';
+require 'QuestionController.php';
 
 function parsePath(){
   $path = array();
@@ -19,7 +19,7 @@ function parsePath(){
 return $path;
 }
 
-$reqPath = parsePath();
+$reqPath = $this->parsePath();
 $model = $reqPath['call_parts'];
 if(count($reqPath['call_parts']) > 0){
 	 if($reqPath['call_parts'][0] == 'question'){
