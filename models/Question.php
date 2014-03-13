@@ -3,9 +3,10 @@
  *		Class: Question
  *		
  */
+
+require "Model.php";
  
- class Question extends Model
- {
+ class Question extends Model{
 	private $qId;
 	private $qText;
 	private $langId;

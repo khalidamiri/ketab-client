@@ -4,11 +4,9 @@
 
 require '../controllers/QuestionController.php';
 
-class QuestionControllerTest extends PHPUnit_Framework_TestCase
-{
+class QuestionControllerTest extends PHPUnit_Framework_TestCase{
 
-	public function setUp()
-	{
+/*	public function setUp(){
 		$this->qController = new QuestionController();
 	}
 
@@ -20,6 +18,7 @@ class QuestionControllerTest extends PHPUnit_Framework_TestCase
 //		$this->$q_obj = $this->q_array[0];
 //		echo $this->q_obj.to_string();
 	}
+*/
 }
 
 ?>

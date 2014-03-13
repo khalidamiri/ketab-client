@@ -1,21 +1,18 @@
 <?php
 
 include dirname(__DIR__) . '../models/Question.php';
+require "Controller.php";
 
-class QuestionController extends Controller
-{
+class QuestionController extends Controller{
 
-	private $questions = array();
-	private $query = 'SELECT * FROM question';
-	private $mysql;
-	private $rs;
 	
-	public function __construct()
-	{
-		$this->mysql = mysql_connect("localhost", "kankoruser", "kankor");
-		mysql_select_db("kankor");
+	public function __construct(){
 	}
 	
+	public function getModel($id){
+
+	}
+
 	public function getQuestions($qNum)
 	{
 //		$this->query_get . $q_num;
