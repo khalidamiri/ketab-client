@@ -2,8 +2,9 @@
 	"name": "Kankor",
 	"version": "1.0",
 	"dependencies": {
-		"bootstrap": "3.0",
-		"jquery": "1.10.2",
-		"angular": "1.2.14" 
+		"bootstrap": "",
+		"jquery": "",
+		"angular": "",
+		"less": ""
 	}
 }
