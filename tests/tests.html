@@ -1,0 +1,12 @@
+
+<div ng-controller="TestsController">
+	<h2>{{title}}</h2><hr>
+
+	<ul>
+		<li ng-repeat="test in tests">
+			<span>{{test.title}}</span>
+			<span>{{test.year}}</span>
+			<span>{{test.questionsNum}}</span>
+		</li>
+	</ul>
+</div>

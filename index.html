@@ -1,111 +1,38 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="kankor">
 	<head>
-		<title>Kankor</title>
+		<title>کانکور</title>
 		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="assets/libs/bootstrap/less/bootstrap.less" />
-		<link rel="stylesheet" href="assets/css/kankor.less" />
+
+		<!--  To make the stupid IE work  -->
+<!-- 		<meta http-equiv="X-UA-compatible" content="IE=edge"> -->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet/less" href="common/libs/bootstrap/less/bootstrap.less" />
+		<link rel="stylesheet/less" href="common/css/bootstrap-kankor-theme.less" />
 	</head>
 	<body>
-		<div class="navbar navbar-fixed-top navbar-static-top navbar-inverse">
-			<div class="navbar-inner">
-				<div class="container">
-					<a class="navbar-brand pull-right" href="#">کانکور</a>
-					<ul class="nav navbar-nav pull-right">
-						<li class="active"><a href="#">کورپاڼه</a><span class="link-bg"></span></li>
-						<li><a href="#">ازموينې</a></li>
-						<li><a href="#">ليکنې</a></li>
-						<li class="divider-vertical"></li>
-						<li><a href="#">پېژنيال</a></li>
-					</ul>
-					<form class="navbar-form pull-left">
-						<input type="text" class="form-control search-query" placeholder="پلڼته" />
-					</form>
-				</div>
-			</div>
-		</div>
-		<div id="container" class="container">
-			<ul id="questions">
-				<li>
-					<div class="question-container">
-						<span class="question">دا هم يوه پوښتنه. دا پوښتنه بايد چې ډطره اوږده اوسي نو په دې وجه زه هم چټيات پکې ليکم؟</spqn>
-						<ul class="answers">
-							<li class="answer-container">
-								<input class="answer-check" id="q1answ1" type="checkbox" />
-								<label for="q1answ1" class="answer">دا هم لومړی ځواب ده.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q2answ2" type="checkbox" />
-								<label for="q2answ2" class="answer">دا هم لومړی ځواب ده دا يو هڅه نو رمتن.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q3answ3" type="checkbox" />
-								<label for="q3answ3" class="answer">دا هم لومړی ځواب ده نور متن نور متن نور متن نور متن.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q4answ4" type="checkbox" />
-								<label for="q4answ4" class="answer">دا هم لومړی ځواب ده.</label>
-							</li>
-						</ul>
 
-					</div>
-				</li>
-				<li>
-					<div class="question-container">
-						<span class="question">دا هم يوه پوښتنه. دا پوښتنه بايد چې ډطره اوږده اوسي نو په دې وجه زه هم چټيات پکې ليکم؟</spqn>
-						<ul class="answers">
-							<li class="answer-container">
-								<input class="answer-check" id="q1answ1" type="checkbox" />
-								<label for="q1answ1" class="answer">دا هم لومړی ځواب ده.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q2answ2" type="checkbox" />
-								<label for="q2answ2" class="answer">دا هم لومړی ځواب ده دا يو هڅه نو رمتن.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q3answ3" type="checkbox" />
-								<label for="q3answ3" class="answer">دا هم لومړی ځواب ده نور متن نور متن نور متن نور متن.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q4answ4" type="checkbox" />
-								<label for="q4answ4" class="answer">دا هم لومړی ځواب ده.</label>
-							</li>
-						</ul>
+		<!-- The navigation area -->
+		<div ng-include="'layout/nav.html'"></div>
 
-					</div>
-				</li>
-				<li>
-					<div class="question-container">
-						<span class="question">دا هم يوه پوښتنه. دا پوښتنه بايد چې ډطره اوږده اوسي نو په دې وجه زه هم چټيات پکې ليکم؟</spqn>
-						<ul class="answers">
-							<li class="answer-container">
-								<input class="answer-check" id="q1answ1" type="checkbox" />
-								<label for="q1answ1" class="answer">دا هم لومړی ځواب ده.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q2answ2" type="checkbox" />
-								<label for="q2answ2" class="answer">دا هم لومړی ځواب ده دا يو هڅه نو رمتن.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q3answ3" type="checkbox" />
-								<label for="q3answ3" class="answer">دا هم لومړی ځواب ده نور متن نور متن نور متن نور متن.</label>
-							</li>
-							<li class="answer-container">
-								<input class="answer-check" id="q4answ4" type="checkbox" />
-								<label for="q4answ4" class="answer">دا هم لومړی ځواب ده.</label>
-							</li>
-						</ul>
-
-					</div>
-				</li>
-			</ul>
+		<!-- The content area -->
+		<div id="container" ui-view class="container">
 		</div>
 
 		<!-- All scripts in here -->
-		<script src="assets/libs/jquery/dist/jquery.js"></script>
-		<script src="assets/libs/bootstrap/dist/js/bootstrap.js"></script>
-		<script src="assets/libs/less/dist/less-1.7.0.js"></script>
-		<script src="assets/libs/angular/angular.js"></script>
-		<script src="assets/js/kankor.js"></script>
+		<script src="common/libs/jquery/dist/jquery.js"></script>	<script type="text/javascript">console.log($.fn.jquery);</script>
+		<script src="common/libs/less/dist/less-1.7.0.js"></script>
+		<script src="common/libs/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="common/libs/angular/angular.js"></script>
+		<script src="common/libs/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="kankor.js"></script>
+
+		<script src="users/users-controller.js"></script>
+		<script src="tests/tests-controller.js"></script>
+		<script src="questions/questions-controller.js"></script>
+
+		<script src="common/components/users/users-service.js"></script>
+		<script src="common/components/tests/tests-service.js"></script>
 	</body>
 </html>

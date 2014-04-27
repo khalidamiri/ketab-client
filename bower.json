@@ -3,8 +3,9 @@
 	"version": "1.0",
 	"dependencies": {
 		"bootstrap": "",
-		"jquery": "",
+		"jquery": "1.11.0",
 		"angular": "",
-		"less": ""
+		"less": "",
+		"angular-ui-router": ""
 	}
 }

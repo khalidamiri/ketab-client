@@ -1,0 +1,212 @@
+// The Arabic fonts
+//@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
+// @import url(http://fonts.googleapis.com/earlyaccess/lateef.css);
+// @import url(http://fonts.googleapis.com/earlyaccess/scheherazade.css);
+// @import url(http://fonts.googleapis.com/earlyaccess/thabit.css);
+
+@import url(../libs/bootstrap/less/bootstrap.less);
+//@import url(//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css);
+
+
+
+/*	Variables
+---------------------------------------------------------------------------------------- */
+@orange: #ed8600;	/* primary */
+@lightOrange: #f636ae;
+//@navBg: linear-gradient(bottom, @orange, @lightOrange);
+@darkGray: #414141;	/* secondary */
+@lightGray: #ccc;		/* mostly used for borders */
+@lighterGray: #fafafa;		/* mostly used for content background */
+
+@icon-font-path:          "/kankor/common/libs/bootstrap/fonts/";
+
+@brand-primary:         @orange;
+//@lnk-remove:		#dd0000;
+
+@input-border-focus:             @orange;
+
+
+
+/*	General Styles
+---------------------------------------------------------------------------------------- */
+// Body Styles
+@media (min-width: 1200px) {
+    .container{
+        max-width: 900px;
+    }
+}
+
+body{
+	font-family: 'Droid Arabic Naskh', serif;
+	direction: rtl;
+	text-align: right;
+}
+
+.email{
+	direction: ltr!important;
+	text-align: left!important;
+	padding-left: 30px!important;
+}
+
+.icon-flip{
+	-moz-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-ms-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+/*.lnk-remove{
+	color: @lnk-remove;
+}
+.lnk-remove:hover{
+	color: lighten(@lnk-remove, 15%);
+}
+*/
+*{
+	direction: rtl!important;
+	text-align: right!important;
+}
+
+* th span.glyphicon-sort{
+	font-size: 0.6em!important;
+}
+
+* .table th{
+	color: @orange;
+}
+
+* .table th a{
+	text-decoration: none!important;
+}
+
+.close{		// the close button in modal
+	float: left!important;
+}
+
+// Resets
+.adminCol{
+//	text-align: center!important;
+	width: 12%;
+}
+
+// Links
+.btn-loadmore{
+	margin: auto;
+}
+.adminCol a{
+	text-decoration: none;
+	padding: 2px 5px;
+}
+a:hover{
+	text-decoration: none;
+}
+
+
+// Headings
+
+
+
+
+// Other Elements
+.filter-box{
+	height: 40px;
+	width: 98%;
+}
+
+.users-table tr td.adminCol{
+	text-align: left;
+	padding-left: 20px;
+}
+
+
+/*	Helper Styles
+---------------------------------------------------------------------------------------- */
+
+.center{
+	width: 100%;
+	text-align: center!important;
+}
+
+// Forms
+.form-control{
+	margin: 10px 2px;
+}
+.modal .form-control{
+	width: 250px;
+}
+#newUser .modal-dialog,
+#editUser .modal-dialog{
+	width: 350px;
+}
+
+
+// Notifications and errors
+// Consistent items
+
+
+
+/*	Page Structure
+---------------------------------------------------------------------------------------- */
+
+// Headers, footers, and navigation
+@navbar-height: 40px;
+
+@navbar-inverse-bg: @orange;
+@navbar-inverse-border:	lighten(@darkGray, 50%);
+@navbar-inverse-link-color: white;
+@navbar-inverse-link-active-bg: @darkGray;
+@navbar-inverse-link-hover-bg: @darkGray;
+
+.navbar{
+//	border-bottom: solid 1px @lighterGray!important;
+}
+
+.nav li a{		// To fix the spacing issue above the menu items with icons
+	position: relative;
+	top: 0;
+}
+
+.nav a:link,
+.nav a:visited{
+	font-weight: bold;
+}
+
+// Layout
+div#container.container{
+	margin: 30px auto 30px auto!important;
+	background-color: @lighterGray!important;
+	padding-bottom: 20px;
+	border-radius: 3px;
+	border: solid 1px @lightGray;
+	position: relative;
+}
+
+div#container .page-header{
+	padding-right: 10px;
+}
+
+thead{
+//	position: fixed;
+//	background-color: white;
+}
+thead th{
+//	position: relative;
+}
+
+// Other page furniture
+hr{
+	border-color: @lightGray; 
+}
+
+
+
+/*	Page Components
+---------------------------------------------------------------------------------------- */
+
+// Individual pages
+
+
+
+/*	Overrides
+---------------------------------------------------------------------------------------- */
