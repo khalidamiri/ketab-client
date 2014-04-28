@@ -5,6 +5,7 @@
 		"bootstrap": "",
 		"jquery": "1.11.0",
 		"angular": "",
+		"es5-shim": "",
 		"less": "",
 		"angular-ui-router": ""
 	}
