@@ -1,0 +1,12 @@
+
+<div ng-controller="BooksController">
+	<h2>{{title}}</h2><hr>
+
+	<ul>
+		<li ng-repeat="book in books">
+			<span>{{book.title}}</span>
+			<span>{{book.year}}</span>
+			<span>{{book.questionsNum}}</span>
+		</li>
+	</ul>
+</div>

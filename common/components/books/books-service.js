@@ -1,7 +1,7 @@
 
-kankor.factory('Tests', function(){
-	tests = [];
-	tests = [
+book.factory('Books', function(){
+	books = [];
+	books = [
 		{
 			title: 'د کابل کانکور ازموينه',
 			year: '۱۳۹۱',
@@ -23,5 +23,5 @@ kankor.factory('Tests', function(){
 			questionsNum: '۳۰۰'
 		},
 	];
-	return tests;
+	return books;
 });

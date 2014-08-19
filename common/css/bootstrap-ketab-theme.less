@@ -1,5 +1,5 @@
 // The Arabic fonts
-//@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+// @import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 @import url(http://fonts.googleapis.com/earlyaccess/droidarabicnaskh.css);
 // @import url(http://fonts.googleapis.com/earlyaccess/lateef.css);
 // @import url(http://fonts.googleapis.com/earlyaccess/scheherazade.css);
@@ -13,34 +13,39 @@
 /*	Variables
 ---------------------------------------------------------------------------------------- */
 @orange: #ed8600;	/* primary */
-@lightOrange: #f636ae;
+@lightOrange: #FFA530;
 //@navBg: linear-gradient(bottom, @orange, @lightOrange);
 @darkGray: #414141;	/* secondary */
 @lightGray: #ccc;		/* mostly used for borders */
 @lighterGray: #fafafa;		/* mostly used for content background */
 
-@icon-font-path:          "/kankor/common/libs/bootstrap/fonts/";
+@icon-font-path: "/kankor/common/libs/bootstrap/fonts/";
+@arabic-font: 'Droid Arabic Naskh', serif;
 
-@brand-primary:         @orange;
-//@lnk-remove:		#dd0000;
+@brand-primary: @orange;
+//@lnk-remove: #dd0000;
 
-@input-border-focus:             @orange;
+@input-border-focus: @orange;
 
 
+//@input-border-radius: 0;
 
 /*	General Styles
 ---------------------------------------------------------------------------------------- */
 // Body Styles
 @media (min-width: 1200px) {
     .container{
-        max-width: 900px;
+        max-width: 1000px;
     }
 }
 
 body{
-	font-family: 'Droid Arabic Naskh', serif;
+	font-family: @arabic-font;
 	direction: rtl;
 	text-align: right;
+	margin: 20px;
+	margin-top: 55px;
+	background-color: @lighterGray;
 }
 
 .email{
@@ -82,6 +87,10 @@ body{
 
 .close{		// the close button in modal
 	float: left!important;
+}
+
+.modal-content {
+	border-radius: 0;
 }
 
 // Resets
@@ -150,21 +159,24 @@ a:hover{
 ---------------------------------------------------------------------------------------- */
 
 // Headers, footers, and navigation
-@navbar-height: 40px;
+@navbar-height: 65px;
 
-@navbar-inverse-bg: @orange;
-@navbar-inverse-border:	lighten(@darkGray, 50%);
+@navbar-inverse-bg: @lightOrange;
+@navbar-inverse-border:	@lightGray;
 @navbar-inverse-link-color: white;
-@navbar-inverse-link-active-bg: @darkGray;
-@navbar-inverse-link-hover-bg: @darkGray;
+@navbar-inverse-link-active-bg: lighten(@lightOrange, 5%);
+@navbar-inverse-link-hover-bg: lighten(@lightOrange, 5%);
 
 .navbar{
+	padding: 0 20px 0 20px;
 //	border-bottom: solid 1px @lighterGray!important;
 }
 
 .nav li a{		// To fix the spacing issue above the menu items with icons
 	position: relative;
 	top: 0;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .nav a:link,
@@ -175,14 +187,15 @@ a:hover{
 // Layout
 div#container.container{
 	margin: 30px auto 30px auto!important;
-	background-color: @lighterGray!important;
+	background-color: #fff;
 	padding-bottom: 20px;
-	border-radius: 3px;
-	border: solid 1px @lightGray;
+	background-color: #fff;
 	position: relative;
+	box-shadow: 0 0 5px @lightGray;
 }
 
 div#container .page-header{
+	border: 0;
 	padding-right: 10px;
 }
 
@@ -210,3 +223,12 @@ hr{
 
 /*	Overrides
 ---------------------------------------------------------------------------------------- */
+.btn-add-new{
+	font-size:0.6em;
+	position:alternative;
+	top:4px;
+}
+
+.btn {
+	border-radius: 2px 2px;
+}

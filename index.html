@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html ng-app="kankor">
+<html>
 	<head>
-		<title>کانکور</title>
+		<title>کتاب</title>
 		<meta charset="UTF-8" />
 
 		<!--  To make the stupid IE work  -->
 <!-- 		<meta http-equiv="X-UA-compatible" content="IE=edge"> -->
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet/less" href="common/libs/jasmine/lib/jasmine-core/jasmine.css" />
 		<link rel="stylesheet/less" href="common/libs/bootstrap/less/bootstrap.less" />
-		<link rel="stylesheet/less" href="common/css/bootstrap-kankor-theme.less" />
+		<link rel="stylesheet/less" href="common/css/bootstrap-ketab-theme.less" />
 	</head>
 	<body>
 
@@ -17,23 +18,193 @@
 		<div ng-include="'layout/nav.html'"></div>
 
 		<!-- The content area -->
-		<div id="container" ui-view class="container">
-		</div>
+		<div id="container" class="container">
+
+			<div ng-controller="UsersController">
+				<div class="page-header">
+					<h1>
+						{{title}}
+						<a href="" data-toggle="modal" data-target="#newUser" class="btn-add-new" title="نوی کارن">
+							<span class="glyphicon glyphicon-plus-sign"></span>
+						</a>
+					</h1>
+				</div>
+
+				<input type="text" class="form-control filter-box" placeholder="پلټنه" ng-model="search.$"><br>
+
+			<!-- 	<div class="alert alert-success	fade in" id="alertDel">
+					کارن ړنګ شو!
+				</div>
+			 -->
+				<table class="table table-striped table-hover users-table" style="table-layout: fixed;">
+					<thead>
+						<tr>
+							<th id="name">
+								<a href="" title="" ng-click="setOrder('userName')">
+									نوم
+									<span class="glyphicon glyphicon-sort"></span>
+								</a>
+							</th>
+							<th class="school">
+								<a href="" title="" ng-click="setOrder('school')">
+									ښوونځی
+									<span class="glyphicon glyphicon-sort"></span>
+								</a>
+							</th>
+							<th>
+								<a href="" title="" ng-click="setOrder('email')">
+									برېښناليک
+									<span class="glyphicon glyphicon-sort"></span>
+								</a>
+							</th>
+			<!-- 				<th class="user-type-col">
+								<a href="" title="" ng-click="setOrder('userType')">
+									کارن ډول
+									<span class="glyphicon glyphicon-sort"></span>
+								</a>
+							</th> -->
+			<!-- 				<th>
+								<a href="" title="" ng-click="setOrder('testAttempts')">
+									هڅې
+									<span class="glyphicon glyphicon-sort"></span>
+								</a>
+							</th> -->
+							<th class="adminCol">سمون</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="user in users | limitTo:visibleCount | filter:search | orderBy:orderByTerm:reverseOrder">
+							<td class="name"><a href="" title="">{{user.userName}}</a></td>
+							<td class="school">{{user.school}}</td>
+							<td class="email">{{user.email}}</td>
+			<!-- 				<td class="user-type-col">{{user.userType}}</td>
+			 --><!-- 				<td>{{user.testAttempts}}</td> -->
+							<td class="adminCol">
+								<a href="" data-toggle="modal" data-target="#editUser">
+									<span class="glyphicon glyphicon-pencil" title="بدل کړه"></span>
+								</a>
+								<a href="" ng-click="setUserOperated($index)" data-toggle="modal" data-target="#delUser">
+									<span class="glyphicon glyphicon-trash lnk-remove" title="ړنګ کړه"></span>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="center">
+					<button
+						ng-click="increaseVisibleCount()"
+						ng-show="showLoadMore"
+						class="btn btn-primary glyphicon glyphicon-chevron-down btn-loadmore"
+						title="نور وښيه">
+					</button>
+				</div>
+
+
+				
+
+				 <div class="modal fade" id="delUser" role="dialog">
+				 	<div class="modal-dialog">
+				 		<div class="modal-content">
+				 			<div class="modal-body">
+				 				<span class="close" data-dismiss="modal">&times;</span>
+				 				<h4>ايا ډاډمن ياست چې دا کارن د ړنګ شي؟</h4>
+				 			</div>
+				 			<div class="modal-footer">
+				 				<button class="btn btn-primary" ng-click="deleteUser(userOperated)" data-dismiss="modal">هو</button>
+				 				<button class="btn btn-primary" data-dismiss="modal">نه</button>
+				 			</div>
+				 		</div>
+				 	</div>
+				 </div>
+
+				 <div class="modal fade" id="newUser" role="dialog">
+				 	<div class="modal-dialog">
+				 		<div class="modal-content">
+				 			<div class="modal-header">
+				 				<span class="close" data-dismiss="modal">&times;</span>
+				 				<h3>نوی کارن</h3>
+				 			</div>
+			 				<form action="newUser" method="post" accept-charset="utf-8">
+					 			<div class="modal-body">
+					 				<label>کارن نوم:
+					 					<input type="text" name="userName" class="form-control">
+					 				</label>
+					 				<label>بشپړ نوم:
+					 					<input type="text" name="fullName" class="form-control">
+					 				</label>
+					 				<label>کارن ډول:</label><br>
+				 					<div class="btn-group" data-toggle="buttons">
+				 						<label class="btn btn-default">
+				 							<input type="radio" name="" value="">پازوال
+			 							</label>
+				 						<label class="btn btn-default">
+				 							<input type="radio" name="" value="">زده کوونکی
+			 							</label>
+				 					</div>
+					 			</div>
+					 			<div class="modal-footer">
+				 					<button type="button" class="btn btn-primary" data-dismiss="modal">ور زيات کړه</button>
+				 					<button type="button" class="btn btn-default" data-dismiss="modal">ايسته</button>
+					 			</div>
+			 				</form>
+				 		</div>
+				 	</div>
+				 </div>
+
+				<!-- Should use nested view in here, and use user-controller for this part -->
+				<div class="modal fade" id="editUser" role="dialog">
+				 	<div class="modal-dialog">
+				 		<div class="modal-content">
+				 			<div class="modal-header">
+				 				<span class="close" data-dismiss="modal">&times;</span>
+				 				<h3>کارن سمون</h3>
+				 			</div>
+			 				<form action="newUser" method="post" accept-charset="utf-8">
+					 			<div class="modal-body">
+					 				<label>کارن نوم:
+					 					<input type="text" name="userName" class="form-control">
+					 				</label>
+					 				<label>بشپړ نوم:
+					 					<input type="text" name="fullName" class="form-control">
+					 				</label>
+					 				<label>کارن ډول:</label><br>
+				 					<div class="btn-group" data-toggle="buttons">
+				 						<label class="btn btn-default">
+				 							<input type="radio" name="" value="">پازوال
+			 							</label>
+				 						<label class="btn btn-default">
+				 							<input type="radio" name="" value="">زده کوونکی
+			 							</label>
+				 					</div>
+					 			</div>
+					 			<div class="modal-footer">
+				 					<button type="button" class="btn btn-primary" data-dismiss="modal">خوندي کړه</button>
+				 					<button type="button" class="btn btn-default" data-dismiss="modal">ايسته</button>
+					 			</div>
+			 				</form>
+				 		</div>
+				 	</div>
+				 </div>
+
+			</div>		</div>
 
 		<!-- All scripts in here -->
-		<script src="common/libs/es5-shim/es5-shim.js"></script>
+		<script data-main="require.config.js" src="common/libs/requirejs/require.js"></script>
+		
+		<!--
 		<script src="common/libs/jquery/dist/jquery.js"></script>
+		<script src="common/libs/es5-shim/es5-shim.js"></script>
 		<script src="common/libs/less/dist/less-1.7.0.js"></script>
 		<script src="common/libs/bootstrap/dist/js/bootstrap.js"></script>
 		<script src="common/libs/angular/angular.js"></script>
 		<script src="common/libs/angular-ui-router/release/angular-ui-router.js"></script>
-		<script src="kankor.js"></script>
+		<script src="ketab.js"></script>
 
 		<script src="users/users-controller.js"></script>
-		<script src="tests/tests-controller.js"></script>
-		<script src="questions/questions-controller.js"></script>
+		<script src="books/books-controller.js"></script>
 
 		<script src="common/components/users/users-service.js"></script>
 		<script src="common/components/tests/tests-service.js"></script>
+		-->
 	</body>
 </html>
